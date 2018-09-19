@@ -30,7 +30,7 @@ def convert_annotation(input_path, output_path, obj_names_path,text_filename):
          for file_name in os.listdir(os.path.join(input_path,folder_name)):
             if '.png' in file_name and 'mask' not in file_name:
                copyfile(os.path.join(input_path,folder_name,file_name),os.path.join(output_path,file_name))
-               train_files.append(os.path.abspath(file_name)+'\n')
+               train_files.append(os.path.abspath(os.path.join(output_path,file_name))+'\n')
             elif '.txt' in file_name and 'mask' not in file_name  :
                new_text = ""
                f = open(os.path.join(input_path,folder_name,file_name),'r')
